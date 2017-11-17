@@ -359,7 +359,7 @@ class Preferences(GObject.GObject):
             self.entry_autosave_video.set_sensitive(False)
 
     def cb_filechooser_video(self, widget):
-        prefs.autosave_video_dir = self.filechooser_video.get_current_folder()
+        prefs.autosave_video_dir = self.filechooser_video.get_filename()
         logger.debug("Autosave video folder set to: {0}".format(prefs.autosave_video_dir))
 
     def cb_entry_autosave_video(self, widget):
@@ -395,7 +395,7 @@ class Preferences(GObject.GObject):
             self.entry_autosave_picture.set_sensitive(False)
 
     def cb_filechooser_picture(self, widget):
-        prefs.autosave_picture_dir = self.filechooser_picture.get_current_folder()
+        prefs.autosave_picture_dir = self.filechooser_picture.get_filename()
         logger.debug("Autosave picture folder set to: {0}".format(prefs.autosave_picture_dir))
 
     def cb_entry_autosave_picture(self, widget):
