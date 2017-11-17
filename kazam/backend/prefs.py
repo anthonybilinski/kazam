@@ -132,7 +132,7 @@ class Prefs():
         self.tw_stream = ''
         self.tw_server = ''
 
-        self.broadcast_dst = ''
+        self.broadcast_dst = 0
 
         #
         # Command line parameters

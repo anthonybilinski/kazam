@@ -71,7 +71,10 @@ class KazamConfig(ConfigParser):
                          "capture_keys":           "False",
                          "capture_keys_b":         "False",
                          "yt_stream":              "",
-                         "yt_server":              ""
+                         "yt_server":              "",
+                         "tw_stream":              "",
+                         "tw_server":              "",
+                         "broadcast_dst":          "0"
                          },
                 },
                 {"name": "keyboard_shortcuts",
@@ -111,10 +114,10 @@ class KazamConfig(ConfigParser):
                     if d_key == key:
                         return d_section["keys"][key]
 
-    def get(self, section, key):
+    def get(self, section, key, raw=True, fallback=None):
         try:
-            ret = ConfigParser.get(self, section, key)
-            if ret == "None":
+            ret = super(KazamConfig, self).get(section, key, raw=raw, fallback=fallback)
+            if ret is None:
                 default = self.find_default(section, key)
                 self.set(section, key, default)
                 self.write()
